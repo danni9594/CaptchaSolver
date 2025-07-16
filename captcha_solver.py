@@ -182,7 +182,9 @@ class Captcha(object):
         image = trim_fixed(image)
         
         char_width = image.width // 5
-        predicted = ""
+        predicted_chars = []
+        print(f"\nTesting: {im_path}")
+
         for i in range(5):
             # Extract character segment
             char_img = image.crop((i * char_width, 0, (i + 1) * char_width, image.height))
@@ -196,8 +198,18 @@ class Captcha(object):
             
             with torch.no_grad():
                 output = self.model(char_tensor)
-                pred_idx = output.argmax(dim=1).item()
-                predicted += CHARS[pred_idx]
+                
+                # Get prediction and confidence
+                probs = torch.softmax(output, dim=1)
+                confidence, pred_idx = probs.max(1)
+                predicted_char = CHARS[pred_idx.item()]
+                predicted_chars.append(predicted_char)
+                
+                print(f"Character {i+1}: {predicted_char} (confidence: {confidence.item():.3f})")
+
+        predicted_captcha = "".join(predicted_chars)
+        print(f"Predicted: {predicted_captcha}")
 
         with open(save_path, 'w') as f:
-            f.write(predicted + "\n")
+            f.write(predicted_captcha + "\n")
+        print(f"Result saved to: {save_path}")
