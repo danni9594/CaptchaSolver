@@ -66,13 +66,13 @@ To set up the required environment, follow these steps:
   Total training samples: 125
   Training samples: 125
   Starting training...
-  Epoch [1/50], Loss: 3.6890, Accuracy: 2.40%
-  Epoch [2/50], Loss: 3.2340, Accuracy: 17.60%
-  Epoch [3/50], Loss: 2.7481, Accuracy: 32.80%
+  Epoch [1/50], Loss: 3.6828, Accuracy: 4.00%
+  Epoch [2/50], Loss: 3.1702, Accuracy: 23.20%
+  Epoch [3/50], Loss: 2.6395, Accuracy: 32.00%
   ...
-  Epoch [48/50], Loss: 0.0174, Accuracy: 100.00%
-  Epoch [49/50], Loss: 0.0574, Accuracy: 99.20%
-  Epoch [50/50], Loss: 0.0612, Accuracy: 98.40%
+  Epoch [48/50], Loss: 0.0082, Accuracy: 100.00%
+  Epoch [49/50], Loss: 0.0087, Accuracy: 100.00%
+  Epoch [50/50], Loss: 0.0134, Accuracy: 100.00%
   Training completed. Model saved as 'captcha_model.pth'
   ```
 
@@ -94,20 +94,20 @@ To set up the required environment, follow these steps:
   ✓ Loaded model from captcha_model.pth
 
   Testing: input/input00.jpg
-  Character 1: E (confidence: 0.998)
-  Character 2: G (confidence: 0.999)
-  Character 3: Y (confidence: 0.999)
+  Character 1: E (confidence: 1.000)
+  Character 2: G (confidence: 1.000)
+  Character 3: Y (confidence: 1.000)
   Character 4: K (confidence: 1.000)
   Character 5: 4 (confidence: 1.000)
   Predicted: EGYK4
   Result saved to: input00_predicted.txt
 
   Testing: input/input100.jpg
-  Character 1: X (confidence: 0.473)
-  Character 2: M (confidence: 0.973)
-  Character 3: B (confidence: 0.991)
-  Character 4: 1 (confidence: 0.660)
-  Character 5: Q (confidence: 0.847)
+  Character 1: X (confidence: 0.677)
+  Character 2: M (confidence: 0.961)
+  Character 3: B (confidence: 1.000)
+  Character 4: 1 (confidence: 0.882)
+  Character 5: Q (confidence: 0.960)
   Predicted: XMB1Q
   Result saved to: input100_predicted.txt
   ```
